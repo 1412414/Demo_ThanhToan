@@ -1,0 +1,27 @@
+// Place all the styles related to the Index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tag {
+    background: image-url("images/new.png") no-repeat 0 0;
+    position: absolute;
+    display: block;
+    top: -4px;
+    right: -18px;
+    height: 48px;
+    width: 48px;
+}
+
+#featured {
+	background: none;
+}
+
+#featured a.carousel-control {
+	background:none;
+	width: 0%;
+}
+
+#featured a.carousel-control:hover {
+	background:none;
+	width: 0%;
+}

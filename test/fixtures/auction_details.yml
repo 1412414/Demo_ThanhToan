@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auction: one
+  customer: one
+  bid_time: MyString
+  bid_amount: 1
+  status: MyString
+
+two:
+  auction: two
+  customer: two
+  bid_time: MyString
+  bid_amount: 1
+  status: MyString

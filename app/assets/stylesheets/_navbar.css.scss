@@ -1,0 +1,27 @@
+#header {
+	background-image: image-url("images/headerRepeat.png");
+}
+
+.navbar-inverse {
+	background-color: #3A3F44;
+	background-image: linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+}
+
+.navbar-a {
+	color: #DDD!important;
+	font-size: 15px;
+}
+
+.navbar-a:hover {
+	color: white!important;
+	font-size: 15px;
+}
+
+.margin-top {
+	margin-top: 8px;
+}
+
+.padding {
+	padding: 10px;
+}	
+

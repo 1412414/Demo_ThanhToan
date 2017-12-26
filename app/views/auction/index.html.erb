@@ -1,0 +1,121 @@
+<% content_for :title, "Trang chủ" %>
+<div class="well well-small">
+	<h4>Đấu giá nổi bật <small class="pull-right">200+ Đấu giá nổi bật </small></h4>
+	<div id="featured" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+		    <li data-target="#featured" data-slide-to="0" class="active"></li>
+		    <li data-target="#featured" data-slide-to="1"></li>
+		    <li data-target="#featured" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+		    <div class="item active">
+			    <% (0..3).each do |i| %>
+			    	<div class="col-lg-3">
+						<div class="thumbnail">
+							<i class="tag"></i>
+							<a  href="<%= image_path @auctions[i].image.url %>"><img src="<%= image_path @auctions[i].image.url %>" alt=""/></a>
+							<div class="caption">
+								<h5><%= @auctions[i].product_name %></h5>
+							  <h4><a class="btn btn-success" href="<%= auction_path(@auctions[i].auction_id) %>">Xem</a> <span class="pull-right"><%= @auctions[i].current_price %> VNĐ</span></h4>					  
+							</div>
+						</div>	
+					</div>
+				<% end %>	
+		    </div>
+
+		    <div class="item">		
+				<% (4..7).each do |i| %>
+		    		<div class="col-lg-3">
+						<div class="thumbnail">
+							<i class="tag"></i>
+							<a  href="<%= image_path @auctions[i].image.url %>"><img src="<%= image_path @auctions[i].image.url %>" alt=""/></a>
+							<div class="caption">
+								<h5><%= @auctions[i].product_name %></h5>
+						   		<h4><a class="btn btn-success" href="<%= auction_path(@auctions[i].auction_id) %>">Xem</a> <span class="pull-right"><%= @auctions[i].current_price %> VNĐ</span></h4>					  
+							</div>
+						</div>	
+					</div>
+				<% end %>
+		    </div>
+
+		    <div class="item">		
+				<% (8..11).each do |i| %>
+		    		<div class="col-lg-3">
+						<div class="thumbnail">
+							<i class="tag"></i>
+							<a  href="<%= image_path @auctions[i].image.url %>"><img src="<%= image_path @auctions[i].image.url %>" alt=""/></a>
+							<div class="caption">
+								<h5><%= @auctions[i].product_name %></h5>
+						   		<h4><a class="btn btn-success" href="<%= auction_path(@auctions[i].auction_id) %>">Xem</a> <span class="pull-right"><%= @auctions[i].current_price %> VNĐ</span></h4>					  
+							</div>
+						</div>	
+					</div>
+				<% end %>
+		    </div>
+		 </div>
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#featured" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		    <span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#featured" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		    <span class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
+
+<h4>Đấu giá mới nhất </h4>
+<% i = 1 %>
+<% @auctions.each do |auction| %>
+	<% if i == 1 %>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="thumbnail">
+					<a  href="<%= image_path auction.image.url %>"><img src="<%= image_path auction.image.url %>" alt=""/></a>
+					<div class="caption">
+						<h5><%= auction.product_name %></h5>
+						<p><%= auction.description %></p>
+						<h4 style="text-align:center"><a class="btn btn-success"> <%= auction.current_price %> VNĐ </a> <a class="btn btn-default" href="#">Thêm vào <i class="fa fa-eye" aria-hidden="true"></i></a> <a class="btn btn-primary" href="<%= auction_path(auction.auction_id) %>"><i class="fa fa-gavel" aria-hidden="true"></i></a></h4>	  
+					</div>
+				</div>	
+			</div>
+		<% i += 1 %>
+	<% else %>
+		<% if i == 3 %>
+				<div class="col-lg-4">
+					<div class="thumbnail">
+						<a  href="<%= image_path auction.image.url %>"><img src="<%= image_path auction.image.url %>" alt=""/></a>
+						<div class="caption">
+							<h5><%= auction.product_name %></h5>
+							<p><%= auction.description %></p>
+							<h4 style="text-align:center"><a class="btn btn-success"> <%= auction.current_price %> VNĐ </a> <a class="btn btn-default" href="#">Thêm vào <i class="fa fa-eye" aria-hidden="true"></i></a> <a class="btn btn-primary" href="<%= auction_path(auction.auction_id) %>"><i class="fa fa-gavel" aria-hidden="true"></i></a></h4>	  
+						</div>
+					</div>	
+				</div>
+			</div>
+			<% i = 1 %>
+		<% else %>
+			<div class="col-lg-4">
+				<div class="thumbnail">
+					<a  href="<%= image_path auction.image.url %>"><img src="<%= image_path auction.image.url %>" alt=""/></a>
+					<div class="caption">
+						<h5><%= auction.product_name %></h5>
+						<p><%= auction.description %></p>
+						<h4 style="text-align:center"><a class="btn btn-success"> <%= auction.current_price %> VNĐ </a> <a class="btn btn-default" href="#">Thêm vào <i class="fa fa-eye" aria-hidden="true"></i></a> <a class="btn btn-primary" href="<%= auction_path(auction.auction_id) %>"><i class="fa fa-gavel" aria-hidden="true"></i></a></h4>	  
+					</div>
+				</div>	
+			</div>
+			<% i += 1 %>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+
+
+

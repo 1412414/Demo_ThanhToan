@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auction: one
+  customer: one
+  card_number: MyString
+  product_received: MyString
+  status: MyString
+  total_money: 1
+
+two:
+  auction: two
+  customer: two
+  card_number: MyString
+  product_received: MyString
+  status: MyString
+  total_money: 1

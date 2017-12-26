@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ending_time: MyString
+  starting_time: MyString
+  starting_price: 1
+  current_price: 1
+  max_price: 1
+  buy_it_now_price: 1
+  bid_increment: 1
+  status: 1
+  product: one
+
+two:
+  ending_time: MyString
+  starting_time: MyString
+  starting_price: 1
+  current_price: 1
+  max_price: 1
+  buy_it_now_price: 1
+  bid_increment: 1
+  status: 1
+  product: two

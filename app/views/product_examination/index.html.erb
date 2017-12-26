@@ -1,0 +1,23 @@
+<h3 class="container">Duyệt Sản phẩm</h3>
+<br>
+<div class="container-fluid">
+	<% @mas.each do |ma| %>
+
+	<div class="col-lg-3">
+		<div class="thumbnail">
+			<!-- <i class="tag"></i> -->
+
+			<a href="<%= edit_product_examination_path(ma.foo) %>"><img src="<%= image_path ma.image.url %>" alt=""/></a>
+
+			<div class="caption">
+
+				<h5><%= ma.product.product_name %></h5>
+				<p><%= ma.product.description.truncate(100) %></p>
+				<h4 style="text-align:center"><a class="btn btn-success" href="<%= edit_product_examination_path(ma.foo) %>">Kiểm tra</a> </h4>		  
+			</div>
+
+		</div>	
+	</div>
+	<% end %>
+
+</div>

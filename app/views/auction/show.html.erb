@@ -1,0 +1,227 @@
+<% content_for :title, "Chi tiết sản phẩm" %>
+<ul class="breadcrumb">
+	<li><a href="index.html">Trang chủ</a> <span class="divider"></span></li>
+	<li><a href="products.html">Đấu giá</a> <span class="divider"></span></li>
+	<li class="active">Chi tiết đấu giá</li>
+</ul>	
+<div class="row">	  
+	<div id="gallery" class="col-lg-4">
+	    <a href="<%= image_path @images[0].image.url %>" >
+			<img src="<%= image_path @images[0].image.url %>" style="width:100%" />
+	    </a>
+	    <div id="gallery_carousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#gallery_carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#gallery_carousel" data-slide-to="1"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="row">
+						<% (1..2).each do |i| %>
+						    <div class="col-lg-6">
+							    <div class="thumbnail">
+							    	<a href="<%= image_path @images[i].image.url %>"><img class="img-fluid" src="<%= image_path @images[i].image.url %>" alt=""/></a>
+							    </div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<% (3..4).each do |i| %>
+						    <div class="col-lg-6">
+							    <div class="thumbnail">
+							    	<a href="<%= image_path @images[i].image.url %>"><img class="img-fluid" src="<%= image_path @images[i].image.url %>" alt=""/></a>
+							    </div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+
+					<!-- Left and right controls -->
+			<a class="left carousel-control" href="#gallery_carousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#gallery_carousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>		  
+		<div class="btn-toolbar">
+			<div class="btn-group">
+				<span class="btn btn-default"><i class="fa fa-envelope"></i></span>
+				<span class="btn btn-default" ><i class="fa fa-print"></i></span>
+				<span class="btn btn-default" ><i class="fa fa-eye"></i></span>
+				<span class="btn btn-default" ><i class="fa fa-star"></i></span>
+				<span class="btn btn-default" ><i class="fa fa-thumbs-up"></i></span>
+				<span class="btn btn-default" ><i class="fa fa-thumbs-down"></i></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<h3><%= @images[0].product_name %></h3>
+		<small class="pull-right"><a href="<%= auction_auction_detail_index_path(params["id"]) %>">Xem chi tiết đấu giá</a></small>
+		<small id="BuocGia" bid_increment="<%= @images[0].bid_increment %>">Bước giá: <%= @images[0].bid_increment %> VND</small>
+		<small class="pull-right">Thời gian bắt đầu: <%= @images[0].starting_time %> - Thời gian kết thúc: <%= @images[0].ending_time %></small>
+		<hr class="soft"/>
+		<p><b>Giá mua ngay: </b><%= @images[0].buy_it_now_price %></p>
+		<button class="btn btn-success pull-right btn-lg" id="NutMuaNgay">Mua ngay</button>
+		<form class="form-inline">
+			<div class="form-group">
+				<p><b>Giá hiện tại: </b><%= @images[0].current_price %></p>
+				<input type="number" class="form-control" id="InputRaGia" idAuction="<%= @images[0].auction_id %>" onchange="LamTronRaGia()" giaHT="<%= @images[0].current_price %>" required value="0">
+				<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#ModalRaGiaCaoNhat">Ra giá</button>
+				<% if flash[:bidding_message].present? %>
+					<div class="panel panel-default" id="bidding_message">
+						<button type="button" class="close" data-target="#bidding_message" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					  <div class="panel-body"><%= flash[:bidding_message] %></div>
+					</div>
+				<% end %>
+				<div id="ModalRaGiaCaoNhat" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Đặt giá cao nhất</h4>
+							</div>
+							<div class="modal-body">
+								<label for="InputGiaCaoNhat">Giá cao nhất:</label>
+								<input type="number" class="form-control" id="InputGiaCaoNhat" value="0" onchange="LamTronGiaCaoNhat()">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" id="NutRaGia">Ra Giá</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal" id="NutDongModalRaGiaCaoNhat">Đóng</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+		<hr class="soft clr"/>
+		<p><%= @images[0].description %></p>
+		<a class="btn btn-default btn-small pull-right" href="#home">Xem thêm</a>
+		<br class="clr"/>
+		<hr class="soft"/>
+	</div>
+</div>	
+		<div class="row" style="margin-top: 15px;">
+			<div class="col-lg-12">
+	            <ul id="productDetail" class="nav nav-tabs">
+	              <li class="pull-right"><a href="#home" data-toggle="tab">Chi tiết sản phẩm</a></li>
+	              <li class="active pull-right"><a href="#profile" data-toggle="tab">Sản phẩm liên quan</a></li>
+	            </ul>
+	            <div id="myTabContent" class="tab-content">
+	              	<div class="tab-pane fade" id="home">
+	              		<a name="home"></a>
+				  		<h4>Thông tin sản phẩm</h4>
+	                	<table class="table table-bordered">
+							<tbody>
+								<tr class="techSpecRow"><th colspan="2">Chi tiết sản phẩm</th></tr>
+								<tr class="techSpecRow"><td class="techSpecTD1">Brand: </td><td class="techSpecTD2">Fujifilm</td></tr>
+								<tr class="techSpecRow"><td class="techSpecTD1">Model:</td><td class="techSpecTD2">FinePix S2950HD</td></tr>
+								<tr class="techSpecRow"><td class="techSpecTD1">Released on:</td><td class="techSpecTD2"> 2011-01-28</td></tr>
+								<tr class="techSpecRow"><td class="techSpecTD1">Dimensions:</td><td class="techSpecTD2"> 5.50" h x 5.50" w x 2.00" l, .75 pounds</td></tr>
+								<tr class="techSpecRow"><td class="techSpecTD1">Display size:</td><td class="techSpecTD2">3</td></tr>
+							</tbody>
+						</table>
+						<h5 style="font-weight: bold; font-size: 20px;">Đặc trưng</h5>
+						<p>
+						14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).<br/>
+						OND363338
+						</p>
+						<h4>Editorial Reviews</h4>
+						<h5>Manufacturer's Description </h5>
+						<p>
+						With a generous 18x Fujinon optical zoom lens, the S2950 really packs a punch, especially when matched with its 14 megapixel sensor, large 3.0" LCD screen and 720p HD (30fps) movie capture.
+						</p>
+						<h5>Electric powered Fujinon 18x zoom lens</h5>
+						<p>
+						The S2950 sports an impressive 28mm – 504mm* high precision Fujinon optical zoom lens. Simple to operate with an electric powered zoom lever, the huge zoom range means that you can capture all the detail, even when you're at a considerable distance away. You can even operate the zoom during video shooting. Unlike a bulky D-SLR, bridge cameras allow you great versatility of zoom, without the hassle of carrying a bag of lenses.
+						</p>
+						<h5>Impressive panoramas</h5>
+						<p>
+						With its easy to use Panoramic shooting mode you can get creative on the S2950, however basic your skills, and rest assured that you will not risk shooting uneven landscapes or shaky horizons. The camera enables you to take three successive shots with a helpful tool which automatically releases the shutter once the images are fully aligned to seamlessly stitch the shots together in-camera. It's so easy and the results are impressive.
+						</p>
+						<h5>Sharp, clear shots</h5>
+						<p>
+						Even at the longest zoom settings or in the most challenging of lighting conditions, the S2950 is able to produce crisp, clean results. With its mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to reduce the blurring effects of both hand-shake and subject movement to provide superb pictures.
+						</p>
+	              	</div>
+	              	<div class="tab-pane fade active in" id="profile">
+	              		<br class="clr"/>
+						<div id="myTab" class="pull-right">
+							<a href="#listView" data-toggle="tab"><span class="btn btn-default btn-lg"><i class="fa fa-list"></i></span></a>
+							<a href="#blockView" data-toggle="tab"><span class="btn btn-lg btn-default"><i class="fa fa-th-large"></i></span></a>
+						</div>
+						<br class="clr"/>
+						<br class="clr"/>
+						<hr class="soft"/>
+						<div class="tab-content">
+							<div class="tab-pane" id="listView">
+								<% @auctions.each do |a| %>
+									<div class="row">	  
+										<div class="col-lg-3">
+											<div class="thumbnail">
+												<img src="<%= image_path a.image.url %>" alt=""/>
+											</div>
+										</div>
+										<div class="col-lg-5">
+											<h3><%= a.product_name %></h3>				
+											<hr class="soft"/>
+											<p><%= a.description %></p>
+											<br class="clr"/>
+										</div>
+										<div class="col-lg-4">
+											<a class="btn btn-success" href="product_details.html"> <%= a.current_price %> VNĐ </a> 
+											<br class="clr"/>
+											<br class="clr"/>
+											<a class="btn btn-default" href="#">Thêm vào <i class="fa fa-eye" aria-hidden="true"></i></a> 
+											<br class="clr"/>
+											<br class="clr"/>
+											<a class="btn btn-primary" href="#"><i class="fa fa-gavel" aria-hidden="true"></i></a>
+										</div>
+									</div>
+									<hr class="soft"/>
+								<% end %>
+							</div>
+							<div class="tab-pane active" id="blockView">
+								<% i = 0 %>
+								<% @auctions.each do |a| %>
+									<% if i == 0 %>
+										<div class="row">
+									<% end %>	
+
+									<div class="col-lg-4">
+										<div class="thumbnail">
+											<a  href="product_details.html"><img src="<%= image_path a.image.url %>" alt=""/></a>
+											<div class="caption">
+												<h5><b><%= a.product_name %></b></h5>
+												<p><%= a.description %></p>
+												<h4 style="text-align:center"><a class="btn btn-success" href="product_details.html"> <%= a.current_price %> VNĐ </a> <a class="btn btn-default" href="#">Thêm vào <i class="fa fa-eye" aria-hidden="true"></i></a> <a class="btn btn-primary" href="#"><i class="fa fa-gavel" aria-hidden="true"></i></a></h4>	  
+											</div>
+										</div>	
+									</div>
+
+									<% i += 1 %>
+
+									<% if i == 3 %>
+										</div>
+										<% i = 0 %>
+									<% end %>
+								<% end %>
+								<hr class="soft"/>
+							</div>
+						</div>
+						<br class="clr">
+					</div>
+				</div>
+	        </div>
+		</div>
+	    

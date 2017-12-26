@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  examination_time: MyString
+  product: one
+  employee: one
+  reason: MyString
+  status: MyString
+
+two:
+  examination_time: MyString
+  product: two
+  employee: two
+  reason: MyString
+  status: MyString

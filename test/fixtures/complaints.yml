@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  employee: one
+  complaint_day: MyString
+  status: MyString
+  reason: MyString
+
+two:
+  customer: two
+  employee: two
+  complaint_day: MyString
+  status: MyString
+  reason: MyString

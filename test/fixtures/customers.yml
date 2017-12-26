@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  username: MyString
+  email: MyString
+  password_digest: MyString
+  customer_type: MyString
+  email: MyString
+  address: MyString
+  shipping_address: MyString
+  negative_points: 1
+  positive_points: 1
+  total_transactions: MyString
+  blocked: MyString
+  blocking_time: MyString
+  number_of_created_products_in_a_month: 1
+  paypal: MyString
+
+two:
+  customer_name: MyString
+  username: MyString
+  email: MyString
+  password_digest: MyString
+  customer_type: MyString
+  email: MyString
+  address: MyString
+  shipping_address: MyString
+  negative_points: 1
+  positive_points: 1
+  total_transactions: MyString
+  blocked: MyString
+  blocking_time: MyString
+  number_of_created_products_in_a_month: 1
+  paypal: MyString

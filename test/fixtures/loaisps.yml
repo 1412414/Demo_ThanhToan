@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  MaLoai: MyString
+  TenLoai: MyString
+  MaDM: MyString
+
+two:
+  MaLoai: MyString
+  TenLoai: MyString
+  MaDM: MyString

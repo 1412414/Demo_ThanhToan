@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  receipt: one
+  review_type: 1
+  review: MyString
+
+two:
+  customer: two
+  receipt: two
+  review_type: 1
+  review: MyString

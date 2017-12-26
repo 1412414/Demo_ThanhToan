@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Bid Time</th>
+      <th>Bid amount</th>
+  </thead>
+  <tbody>
+    <% @auction_details.each do |ad| %>
+      <tr>
+        <td><%= ad.customer_id %></td>
+        <td><%= ad.bid_time %></td>
+        <td><%= ad.bid_amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

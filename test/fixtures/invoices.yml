@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receipt: one
+  card_number: 1
+  total_money: 1
+
+two:
+  receipt: two
+  card_number: 1
+  total_money: 1

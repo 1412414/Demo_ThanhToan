@@ -1,0 +1,70 @@
+		<div id="mainBody">
+			<div class="container">
+				<!-- <div class="row">	   -->
+					<div id="gallery" class="span3">
+						<!-- <a href="themes/images/products/large/f1.jpg" title=""> -->
+							<img src="themes/images/products/large/3.jpg" style="width:100%" alt=""/>
+						<!-- </a> -->
+						<div id="differentview" class="moreOptopm carousel slide">
+							<div class="carousel-inner">
+								<div class="item active">
+									<a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt=""/></a>
+									<a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt=""/></a>
+									<a href="themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
+								</div>
+								<div class="item">
+									<a href="themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
+									<a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt=""/></a>
+									<a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt=""/></a>
+								</div>
+							</div>
+              <!--  
+			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
+          -->
+      </div>
+
+  </div>
+  <div class="span8">
+  <!-- 	<br class="clr"> -->
+  	<h3><%= @productexamination.product.product_name %></h3>
+  	<div><%= @productexamination.product.customer.customer_name %></div>
+  	<div>Danh mục: <%= @productexamination.product.product_type.category.category_name %></div>
+  	<div>Loại SP: <%= @productexamination.product.product_type.product_type_name %></div>
+
+  	<hr class="soft"/>
+
+  	<label class="btn btn-success">
+  		<input type="radio" name="options" id="option1" autocomplete="off" checked>Duyệt
+  	</label>
+  	<label class="btn btn-danger">
+  		<input type="radio" name="options" id="option2" autocomplete="off">Không duyệt
+  	</label>
+
+  	<div>
+  		<br>
+  		<textarea rows="5" style="width: 98%" id="textarea" class="" placeholder="Lý do"></textarea>
+	  	<button type="submit" class="btn">Gửi kết quả</button>
+  	</div>
+
+<!--   	<button type="submit" class="btn btn-success">Duyệt</button>
+  	<button type="submit" class="btn btn-danger">Không duyệt</button>
+  -->  </div>
+<br>
+  <div class="span12">
+
+  	<div id="myTabContent" class="tab-content">
+  		<div class="tab-pane fade active in" id="home">
+  			<h4>Product Information</h4>
+  			
+  			<p>
+  				<%= @productexamination.product.description %> 
+  			</p>
+  		</div>
+  		
+  	</div>
+  </div>
+
+  <!-- </div> -->
+</div>
+</div>

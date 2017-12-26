@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: . # Tìm Dockerfile ở thư mục hiện hành
+    container_name: web
+    env_file: .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/doan # Match thư mục hiện hành với thư mục doan trong máy ảo
+    entrypoint: sh /doan/startup.sh
+    links:
+      - db
+  db:
+    image: postgres
+    container_name: db
+    env_file: .env

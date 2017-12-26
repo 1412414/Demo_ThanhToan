@@ -1,0 +1,87 @@
+<% @temp = 0 %>
+<div id="mainBody">
+ <div class="container">
+  <!-- <div class="row">	   -->
+   <div id="gallery" class="span3 col-md-4">
+    <% @mas.each do |ma| %>
+      <% if @temp == 0 %>
+        <img src="<%= image_path ma.image.url %>" style="width:270px" alt=""/>
+        <% @temp = 1 %>
+        <div id="differentview" class="moreOptopm carousel slide">
+        <div class="carousel-inner">
+      <br>
+      <% else %>
+      
+        <!-- <div class="item active"> -->
+         <a href=""> <img style="width:85px" src="<%= image_path ma.image.url %>" alt=""/></a>
+        <!-- </div> -->
+                 <!-- <div class="item">
+                   <a href="themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
+                   <a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt=""/></a>
+                   <a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt=""/></a>
+                 </div> -->
+        
+                <!--  
+  			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
+              -->
+              <% end %>
+                  <% end %>
+      </div>
+      </div>
+     
+
+        </div>
+
+        <div class="span8 col-md-8">
+          <!-- 	<br class="clr"> -->
+          <h3><%= @productexamination.product.product_name %></h3>
+          <div><%= @productexamination.product.customer.customer_name %></div>
+          <div>Danh mục: <%= @productexamination.product.product_type.category.category_name %></div>
+          <div>Loại SP: <%= @productexamination.product.product_type.product_type_name %></div>
+
+          <hr class="soft"/>
+
+          <%= form_with scope: :product_examination, url: product_examination_path, method: :put, local: true do |f|%>
+          <div class="form-group">
+            <!-- <label>Title</label> -->
+            <label class="btn btn-success">
+              <%= f.radio_button :status, '2', :checked => true %> Duyệt
+            </label>
+            <label class="btn btn-danger">
+              <%= f.radio_button :status, '1' %> Không Duyệt
+            </label>
+          </div>
+
+          <div class="form-group">
+            <br>
+            <!-- <label>Lý do</label> -->
+            <%= f.text_area :reason, placeholder: "Lý do", class: 'form-control', rows: "4" %>
+          </div>
+
+          <br>
+          <button type="submit" class="btn">Gửi kết quả</button>
+          <% end %>
+          
+          <br>
+
+        
+        <br>
+        <div class="span12">
+
+         <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="home">
+
+           <h4>Product Information</h4>
+
+           <p>
+            <%= @productexamination.product.description %> 
+          </p>
+        </div>
+
+      </div>
+    </div>
+</div>
+    <!-- </div> -->
+  </div>
+</div>

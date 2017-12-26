@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>phiên đấu giá</th>
+      <th>Tên sản phẩm</th>
+      <th>Tổng tiền</th>
+      <th>Thanh toán</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |r| %>
+      <tr>
+        <td><%= r.auction_id %></td>
+        <td><%= r.product_name %></td>
+        <td><%= r.total_amount %></td>
+        <td><a href="<%= customer_receipt_pay_path({:customer_id => params[:customer_id], :receipt_id => r.id}) %>">Thanh toán</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

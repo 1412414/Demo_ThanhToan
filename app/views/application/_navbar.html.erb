@@ -1,0 +1,82 @@
+<div id="header">
+        <div class="container">
+            <div id="welcomeLine" class="row  margin-top">
+                <div class="col-lg-12">Xin chào!<strong> Nguyễn Văn A</strong>
+                    <div class="pull-right">
+                        <a href="<%= new_customer_product_path(1) %>"><span class="btn btn-xs btn-primary">Đăng sản phẩm</span> </a>
+                        <a href="product_summary.html"><span class="btn btn-xs btn-primary"><i class="fa fa-eye"></i> [ 3 ] Phiên đấu giá bạn thích </span> </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Navbar ================================================== <--></-->
+            <div id="logoArea" class="navbar  navbar-inverse margin-top padding">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topMenu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="brand" href="index.html"><img src="<%= image_path "images/OdunAuction.png" %>" alt="Bootsshop"/></a>
+                    </div>
+                    <form method="post" action="products.html" class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <div class="input-group">   
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                    <input id="search" type="text" class="form-control input-sm" name="search" placeholder="Tìm kiếm">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control input-sm">
+                                    <option>Tất cả</option>
+                                    <%= categories_navbar() %>
+                                </select>
+                            </div>
+                            <button type="submit" id="submitButton" class="btn btn-primary">Tìm</button> 
+                    </form>
+                    <div class="collapse navbar-collapse" id="topMenu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="navbar-color"><a class="navbar-a" href="special_offer.html">Giảm giá</a></li>
+                            <li class=""><a class="navbar-a" href="normal.html">Giao hàng</a></li>
+                            <li class=""><a class="navbar-a" href="contact.html">Liên hệ</a></li>
+                            <button class="btn btn-success navbar-btn btn-md" data-toggle="modal" data-target="#login">Đăng nhập</button>
+                        </ul>
+                        <div id="login" class="modal fade" role="dialog" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title">Đăng nhập</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form  method="post" action="products.html">
+                                            <div class="form-group">
+                                                <label for="email">Email đăng nhập:</label>
+                                                <input type="email" class="form-control" id="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Mật khẩu:</label>
+                                                <input type="password" class="form-control" id="pwd">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox"> Nhớ tên đăng nhập và mật khẩu</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Đăng nhập</button>
+                                            <a href="#" class="btn btn-warning" role="button">Đăng ký</a>
+                                        </form> 
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <!-- Header End====================================================================== -->

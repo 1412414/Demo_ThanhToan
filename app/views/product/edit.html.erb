@@ -1,0 +1,65 @@
+<% content_for :title, "Chỉnh sửa sản phẩm" %>
+<div class="container">
+	<h1>Chỉnh sửa sản phẩm</h1>
+	<div class="row">
+		<form action="multiupload.php" method="post" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="panel panel-default">
+					    <div class="panel-heading">Thông tin sản phẩm</div>
+					    <div class="panel-body">
+					    	<div class="row">
+					    		<div class="col-lg-4">
+						    		<div class="form-group">
+									  <label for="sel1">Danh mục:</label>
+									  <select class="form-control" id="sel1">
+									    <option>1</option>
+									    <option>2</option>
+									    <option>3</option>
+									    <option>4</option>
+									  </select>
+									</div>
+									<div class="form-group">
+									  <label for="sel1">Loại sản phẩm:</label>
+									  <select class="form-control" id="sel1">
+									    <option>1</option>
+									    <option>2</option>
+									    <option>3</option>
+									    <option>4</option>
+									  </select>
+									</div>
+						    	</div>
+						    	<div class="col-lg-3">
+						    		<div class="form-group">
+									    <label for="so_luong">Số lượng thêm:</label>
+									    <input type="number" class="form-control" id="so_luong">
+									</div>
+									<button type="button" class="btn btn-success" onclick="tao_phien_chinh_sua()">Thêm phiên</button>
+						    	</div> 
+					    	</div>
+							<div class="form-group">
+							    <label for="">Tên sản phẩm:</label>
+							    <input type="text" class="form-control" id="">
+							</div>
+							<div class="form-group">
+							    <label for="">Mô tả:</label>
+							    <textarea type="text" class="form-control" id="" rows="6"></textarea>
+							</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="panel panel-default">
+					    <div class="panel-heading">Hình ảnh sản phẩm</div>
+					    <div class="panel-body">
+							<input type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple>
+							<div class="row" id="image_preview"></div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="tao_phien_chinh_sua"></div>
+			<button type="submit" class="btn btn-primary">Lưu</button>
+		</form>
+	</div>
+</div>
